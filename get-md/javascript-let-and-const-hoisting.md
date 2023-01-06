@@ -26,7 +26,7 @@ console.log(number)
 
 ```
 
-`number` 提升到了全局作用域的顶部，这使得变量在其声明代码执行之前就能够被访问，而不会报错。
+`number` 提升到了全局作用域的顶部，这使得它在变量声明代码之前的代码中也能够被访问，而不会报错。
 
 不过需要注意的是，这里只有变量声明（`var number`）被提升了，变量的初始化（`= 10`）却没有被提升。所以在 `number` 声明之前访问它，得到的是 **var 定义的变量的默认初始值**，即 `undefined`。
 
@@ -48,9 +48,9 @@ console.log(number)
 
 发现会报错：**ReferenceError: Cannot access 'number' before initialization**。
 
-由此可见，用 var 定义的变量可以在声明之前被访问而不报错，但是用 `let` 或 `const` 定义的变量不行。
+由此可见，用 var 定义的变量可以在声明之前被访问而不报错，但是用 `let` 或 `const` 定义的变量却不行。
 
-这正是令我我以为只有 var 定义的变量才会提升的原因。
+这正是令我以为只有 var 定义的变量才会提升的原因。
 
 不过，如我所言，我最近发现 `let` 或者 `const` 定义的变量也会提升。接下来，我会解释这个情况。
 
@@ -67,7 +67,7 @@ let number = 10
 
 执行这段代码，结果报错了：**ReferenceError: number2 is not defined**。
 
-注意到这个报错信息和之前的报错有何不同了吗？之前的报错信息是 **ReferenceError: Cannot access 'number' before initialization**，而这次则是 **ReferenceError: number2 is not defined**。
+注意到这个报错信息和之前的报错信息有何不同了吗？之前的报错信息是 **ReferenceError: Cannot access 'number' before initialization**，而这次则是 **ReferenceError: number2 is not defined**。
 
 两者是有区别的，前一个是说“无法在初始化之前访问”，后一个是说“未定义”。
 
